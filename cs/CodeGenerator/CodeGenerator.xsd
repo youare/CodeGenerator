@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  id="CodeGenerator"
+  targetNamespace="http://dd.com/code_generator.xsd"
+  elementFormDefault="qualified"
+  xmlns="http://dd.com/code_generator.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="EntityEntryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Int" />
+      <xs:enumeration value="Long" />
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="DateTime" />
+      <xs:enumeration value="Decimal" />
+      <xs:enumeration value="Double" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EntityRelationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Primary" />
+      <xs:enumeration value="Foreign" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="EntityEntry">
+    <xs:all>
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="EntityEntryType" type="EntityEntryType" />
+      <xs:element name="EntityRelationType" type="EntityRelationType" />
+      <xs:element name="Nullable" type="xs:boolean" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="EntityEntryList">
+    <xs:sequence>
+      <xs:element name="EntityEntry" type="EntityEntry" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EntityConfig">
+    <xs:all>
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="EntityEntryList" type="EntityEntryList" />
+    </xs:all>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="DaoConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+      <xs:element name="ParentName" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ValueObjectConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="AggregateConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="DtoConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ReaderConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="WriterConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="QueryConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="CommandConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="AggregateFactoryConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ControllerConfig">
+    <xs:all>
+      <xs:element name="NamespacePrefix" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="AppConfig">
+    <xs:all>
+      <xs:element name="ServiceName" type="xs:string" />
+      <xs:element name="ServerRootFolder" type="xs:string" />
+      <xs:element name="JsRootFolder" type="xs:string" />
+      <xs:element name="JsConstantPrefix" type="xs:string" />
+      <xs:element name="EntityConfig" type="EntityConfig" />
+      <xs:element name="DaoConfig" type="DaoConfig" />
+      <xs:element name="ValueObjectConfig" type="ValueObjectConfig" />
+      <xs:element name="AggregateConfig" type="AggregateConfig" />
+      <xs:element name="DtoConfig" type="DtoConfig" />
+      <xs:element name="ReaderConfig" type="ReaderConfig" />
+      <xs:element name="WriterConfig" type="WriterConfig" />
+      <xs:element name="QueryConfig" type="QueryConfig" />
+      <xs:element name="CommandConfig" type="CommandConfig" />
+      <xs:element name="AggregateFactoryConfig" type="AggregateFactoryConfig" />
+      <xs:element name="ControllerConfig" type="ControllerConfig" />
+    </xs:all>
+  </xs:complexType>
+  <xs:element name="CodeGenerator" type="AppConfig" />
+</xs:schema>

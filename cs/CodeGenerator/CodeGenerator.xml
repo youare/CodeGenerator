@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeGenerator xmlns="http://dd.com/code_generator.xsd">
+  <ServiceName>ResumeServiceApi</ServiceName>
+  <ServerRootFolder>C:\ToBeDeleted</ServerRootFolder>
+  <JsRootFolder>C:\ToBeDeleted</JsRootFolder>
+  <JsConstantPrefix>ResumeService</JsConstantPrefix>
+  <EntityConfig>
+    <Name>Resume</Name>
+    <EntityEntryList>
+      <EntityEntry>
+        <Name>Id</Name>
+        <EntityEntryType>Int</EntityEntryType>
+        <EntityRelationType>Primary</EntityRelationType>
+        <Nullable>false</Nullable>
+      </EntityEntry>
+      <EntityEntry>
+        <Name>Name</Name>
+        <EntityEntryType>String</EntityEntryType>
+        <EntityRelationType>Normal</EntityRelationType>
+        <Nullable>false</Nullable>
+      </EntityEntry>
+      <EntityEntry>
+        <Name>AuditTime</Name>
+        <EntityEntryType>DateTime</EntityEntryType>
+        <EntityRelationType>Normal</EntityRelationType>
+        <Nullable>false</Nullable>
+      </EntityEntry>
+      <EntityEntry>
+        <Name>AuditBy</Name>
+        <EntityEntryType>String</EntityEntryType>
+        <EntityRelationType>Normal</EntityRelationType>
+        <Nullable>false</Nullable>
+      </EntityEntry>
+      <EntityEntry>
+        <Name>EventType</Name>
+        <EntityEntryType>String</EntityEntryType>
+        <EntityRelationType>Normal</EntityRelationType>
+        <Nullable>false</Nullable>
+      </EntityEntry>
+    </EntityEntryList>
+  </EntityConfig>
+
+  <DaoConfig>
+    <NamespacePrefix>Data.Contracts.Daos</NamespacePrefix>
+    <ParentName>BaseDao</ParentName>
+  </DaoConfig>
+
+  <ValueObjectConfig>
+    <NamespacePrefix>Domain.SharedKernel.ValueObjects</NamespacePrefix>
+  </ValueObjectConfig>
+
+  <AggregateConfig>
+    <NamespacePrefix>Domain</NamespacePrefix>
+  </AggregateConfig>
+
+  <DtoConfig>
+    <NamespacePrefix>BusinessLayer.Query.Dtos</NamespacePrefix>
+  </DtoConfig>
+  
+  <ReaderConfig>
+    <NamespacePrefix>Data.Reader</NamespacePrefix>
+  </ReaderConfig>
+
+  <WriterConfig>
+    <NamespacePrefix>Data.Writer</NamespacePrefix>
+  </WriterConfig>
+
+  <QueryConfig>
+    <NamespacePrefix>BusinessLayer.Query</NamespacePrefix>
+  </QueryConfig>
+
+  <CommandConfig>
+    <NamespacePrefix>BusinessLayer.Command</NamespacePrefix>
+  </CommandConfig>
+
+  <AggregateFactoryConfig>
+    <NamespacePrefix>BusinessLayer.Command.AggregateFactories</NamespacePrefix>
+  </AggregateFactoryConfig>
+  
+  <ControllerConfig>
+    <NamespacePrefix>Controllers</NamespacePrefix>
+  </ControllerConfig>
+</CodeGenerator>
